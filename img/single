@@ -1,0 +1,4 @@
+// Single variables
+digraph {
+	x -> y [constraint=false]
+}

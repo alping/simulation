@@ -1,0 +1,6 @@
+// More variables
+digraph {
+	x1 -> y
+	x3 -> y
+	x2 -> y
+}

@@ -1,0 +1,18 @@
+digraph G {
+  node [fontname="Arial" shape=box];
+  edge [fontname="Arial"];
+
+  specification -> dgp [label="Creates"];
+
+  dgp -> data [label="Generates"]
+  data -> testing;
+  testing -> params;
+
+  params -> specification [label="Comparison"];
+
+  specification [label="Simulation Model Specification"]
+  dgp [label="Data Generating Process"]
+  data [label="Data"]
+  testing [label="Testing"]
+  params [label="Estimated Parameters"]
+}

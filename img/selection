@@ -1,0 +1,7 @@
+// Selection Bias
+digraph {
+	x -> y [constraint=False]
+	x -> s
+	y -> s
+	s [shape=rectangle]
+}

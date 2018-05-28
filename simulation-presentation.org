@@ -1,0 +1,139 @@
+#+OPTIONS: toc:1 num:nil
+#+REVEAL_ROOT: ../res/reveal.js
+#+REVEAL_TRANS: slide
+#+REVEAL_THEME: black
+#+REVEAL_EXTRA_CSS: ../res/revealjs-themes/custom-dark-org.css
+#+TITLE: Simulation
+#+AUTHOR: Peter Alping
+#+EMAIL: peter.alping@ki.se
+#+DATE: 2018-05-24
+
+* Introduction
+
+  #+REVEAL: split
+
+  #+BEGIN_QUOTE
+  Simulation is the imitation of the operation of a real-world process or
+  system -- Wikipedia
+  #+END_QUOTE
+
+** Our typical situation
+
+   /We want to know more about a biological process for which we have measured
+   some data/
+
+   #+REVEAL: split
+
+   #+ATTR_REVEAL: :frag (appear)
+   - An biological process generates data
+   - We measure and collect this data
+   - Invent model how we /think/ data was generated
+   - Fit the model to our data
+   - Giving us the parameters for the model
+   - Inferences about the data-generating process
+
+   #+REVEAL: split
+
+   [[file:./img/typical-situation.png]]
+
+** The simulation situation
+
+   /We want to know more about how something behaves, given data of specific type/
+
+   #+REVEAL: split
+
+   #+ATTR_REVEAL: :frag (appear)
+   - Specify a model for the simulated data
+   - Including model parameters
+   - /Generate data using this model/
+   - Test something given our data
+   - Compare the result to our "true" model
+
+   #+REVEAL: split
+
+   [[file:./img/simulation-situation.png]]
+
+   #+REVEAL: split
+
+   | Typical situation                | Simulation situation                |
+   |----------------------------------+-------------------------------------|
+   | [[file:./img/typical-situation.png]] | [[file:./img/simulation-situation.png]] |
+
+* Basics
+
+* Linear Regression
+
+** When do we use it?
+   #+ATTR_REVEAL: :frag (appear)
+   - Continuous dependent variable (y)
+   - Cont./discrete independent variables (x_1, ..., x_p)
+   - Error normally distributed
+
+   -----
+
+   #+ATTR_REVEAL: :frag (appear)
+   - $y = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_px_p + \epsilon$
+   - $\epsilon \sim normal(0, \sigma)$
+
+** In GLM notation
+   #+ATTR_REVEAL: :frag (appear)
+   - Dependent variable from normal distribution (y)
+   - Cont./discrete independent variables (x_1, ..., x_p)
+
+   -----
+
+   #+ATTR_REVEAL: :frag (appear)
+   - $E(y) = \mu = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_px_p$
+   - $y \sim normal(\mu, \sigma)$
+
+* Logistic Regression
+
+** When do we use it?
+   #+ATTR_REVEAL: :frag (appear)
+   - Binary dependent variable (y)
+   - Cont./discrete independent variables (x_1, ..., x_p)
+   - No common error distribution independent of predictor values
+
+   -----
+
+   #+ATTR_REVEAL: :frag (appear)
+   - $logit(y) = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_px_p + \epsilon$
+   - $logit(y) = log(\frac{y}{1 - y})$
+   - $\epsilon$ has no independent distribution
+
+** In GLM notation
+   #+ATTR_REVEAL: :frag (appear)
+   - Dep. var. from binomial distr. with 1 trial (y)
+   - Cont./discrete independent variables (x_1, ..., x_p)
+
+   -----
+
+   #+ATTR_REVEAL: :frag (appear)
+   - $E(y) = \mu = logit^{-1}(\beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_px_p$)
+   - $logit^{-1}(x) = \frac{e^x}{1 + e^x}$
+   - $y \sim binomial(1, \mu)$
+
+* Confounding
+
+  #+REVEAL: split
+
+  [[file:./img/confounding.png]]
+
+* Selection Bias
+
+  #+REVEAL: split
+
+  [[file:./img/selection.png]]
+* Generalized Linear Models
+
+  #+REVEAL: split
+
+  #+ATTR_REVEAL: :frag (appear)
+  - $E(y) = \mu = g^{-1}(\beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_px_p$)
+  - $y \sim distribution(\mu)$
+
+  -----
+
+  #+ATTR_REVEAL: :frag (appear)
+  - $E(y) = \mu = g^{-1}(\boldsymbol{X}\boldsymbol{\beta})$
+  - $y \sim distribution(\mu)$

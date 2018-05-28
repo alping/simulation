@@ -1,0 +1,6 @@
+// Confounding
+digraph {
+	x -> y [constraint=False]
+	c -> x
+	c -> y
+}

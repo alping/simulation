@@ -1,0 +1,19 @@
+digraph G {
+  node [fontname="Arial" shape=box];
+  edge [fontname="Arial"];
+
+  dgp -> selection [label="Informs"];
+  selection -> fitting;
+
+  dgp -> data [label="Generates"]
+  data -> fitting;
+  fitting -> params;
+
+  params -> dgp [label="Inference"];
+
+  dgp [label="Data Generating Process"]
+  data [label="Data"]
+  selection [label="Model Selection"]
+  fitting [label="Model Fitting"]
+  params [label="Estimated Parameters"]
+}
