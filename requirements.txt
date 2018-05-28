@@ -1,0 +1,9 @@
+bokeh
+graphviz
+holoviews
+jupyter
+matplotlib
+numpy
+pandas
+scipy
+statsmodels
